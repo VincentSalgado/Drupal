@@ -1,0 +1,52 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.form-container
+{
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+input {
+	margin-top: 20px;
+	padding: 4px 1px 4px 6px;
+	height: 27px;
+	border-radius:3px;
+	outline: none;
+	background: #fff;
+}
+
+input[type="button"]
+{
+	height: 37px;
+	width: 80px;
+	margin: 0 auto;
+  background-color: #F16622;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F16622), to(#CB3727))
+  background-image: -webkit-linear-gradient(top, #F16622, #CB3727);
+  background-image:    -moz-linear-gradient(top, #F16622, #CB3727);
+  background-image:      -o-linear-gradient(top, #F16622, #CB3727);
+  background-image:         linear-gradient(to bottom, #F16622, #CB3727);
+  border-radius:3px;
+    
+    border: 1px solid #CB3727; 
+    color: #FFFFFF;
+    
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-shadow: 0 1px 1px #CB3727;
+    cursor:pointer;
+}
+
+input[type=button]:hover {
+  background-color: #CB3727;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#CB3727), to(#F16622))
+  background-image: -webkit-linear-gradient(top, #CB3727, #F16622);
+  background-image:    -moz-linear-gradient(top, #CB3727, #F16622);
+  background-image:      -o-linear-gradient(top, #CB3727, #F16622);
+  background-image:         linear-gradient(to bottom, #CB3727, #F16622);
+}

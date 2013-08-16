@@ -1,0 +1,6 @@
+name = azneighborhood
+description = custom geocoder module --neighborhood
+core = 7.x
+version = "7.x-0.1"
+package = State of Arizona
+configure = admin/myneighborhood
