@@ -1,0 +1,6 @@
+name = employee
+description = Employee Directory
+package = State of Arizona
+core = 7.x
+version = "7.x-0.1"
+configure = admin/employee

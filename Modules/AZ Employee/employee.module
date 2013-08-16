@@ -1,0 +1,284 @@
+<?php
+/*
+
+	drupal_add_css(drupal_get_path('module','employee').'/media/css/jquery.dataTables.css');
+	//drupal_add_css(drupal_get_path('module','employee').'media/css/form.css');
+
+	drupal_add_js(drupal_get_path('module', 'employee') . '/employee.js');
+	drupal_add_js(drupal_get_path('module','employee').'/media/js/jquery.js');
+drupal_add_js(drupal_get_path('module','employee').'/http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
+	drupal_add_js(drupal_get_path('module','employee').'/media/js/jquery.dataTables.js');
+	*/
+drupal_add_css(drupal_get_path('module','employee').'/media/css/jquery.dataTables.css');
+//drupal_add_css(drupal_get_path('module','employee').'/css/form.css');
+drupal_add_js(drupal_get_path('module', 'employee') . '/employee.js');
+drupal_add_js(drupal_get_path('module','employee').'/media/js/jquery.js');
+drupal_add_js(drupal_get_path('module','employee').'/http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
+drupal_add_js(drupal_get_path('module','employee').'/media/js/jquery.dataTables.js');
+drupal_add_js(drupal_get_path('module','employee').'/employee.js');
+	
+function employee_menu() {
+
+	
+	$items = array();	
+	
+	$items['emp/search'] = array(
+			'title' => t('Employee Search'),
+			'page callback' => 'drupal_get_form',
+			'page arguments' => array('employee_form'),
+			'access arguments' => array('access content'),
+			'type' => MENU_NORMAL_ITEM,
+	);	
+	$items['admin/employee'] = array(
+			'title' => 'Employee',
+			'description' =>  'Configure Employee settings.',
+			'page callback' => 'drupal_get_form',
+			'page arguments' => array('employee_admin'),
+			'access arguments' => array('administer users'),
+			'menu_name' => 'Employee Configuration',
+	);
+
+	return $items;
+}
+
+function employee_form() {
+	try {
+		
+		// Replacing the Form URL with variable in the configuration
+		// $client = new SoapClient("https://bpsdev.az.gov:9443/services/AuthenticationAdmin?wsdl", array('trace' => 1, 'location'=>"https://bpsdev.az.gov:9443/services/AuthenticationAdmin"));
+		//$agency_api =  variable_get('Employee_AgencyAPI');
+		
+	$form['table_filter'] = array('#markup' => t('<table><tr><td>'));
+		
+	$form['FirstName'] = array(
+				'#type' => 'textfield',
+				'#title' => t('First Name'),
+				'#size' => 15,				
+				
+		);
+	
+	$form['table_filter_td11'] = array('#markup' => t('</td><td>'));
+	
+	$form['LastName'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Last Name'),
+			'#size' => 15,		
+	
+	);
+	
+	
+	$form['table_filter_td12'] = array('#markup' => t('</td></tr><td colspan="2">'));
+	
+	/*$form['Phone'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Phone'),
+			'#size' => 15,
+	
+	);*/
+
+	//$test = $agency_api . "?org_id=null"
+	// "http://172.19.2.216:8285/agency/1.0/get_orglist?org_id=null"
+	//Get Agency List
+	$ch = curl_init();
+	$headers = array(
+			"Authorization: Bearer iOdEYtG1i70tHhVEHX5e1YqGBEsa",
+	);
+	curl_setopt_array($ch, array(
+	CURLOPT_RETURNTRANSFER => 1,
+	CURLOPT_HTTPHEADER => $headers,
+	CURLOPT_URL => "http://172.19.1.173:8285/agency/1.0/get_orglist?org_id=null"  //$agency_api . "?org_id=null" 
+			));
+			$response = curl_exec($ch);
+			curl_close($ch);
+	
+			$xml = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $response);
+			$xml = simplexml_load_string($xml);
+			$options = array();
+			
+			$options[""] ="- Select -";
+			foreach($xml->organization as $Ind)
+			{
+				$abrv = (string)$Ind->abrv;
+				$title = (string)$Ind->abrv . " " .$Ind->title;
+				$options[$abrv] =$title;
+			}
+	
+	$form['Agency'] = array(
+			'#title' => t('Agency'),
+			'#type' => 'select',
+			'#options' => $options,			
+	);
+	$form['table_filter_td13'] = array('#markup' => t('</td><tr><td colspan="2" align="right">'));
+	
+	
+	$form['Submit'] = array(
+			'#type' => 'submit',
+			'#value' => t('Search'),
+			'#submit' => array('employee_search'),
+	);
+	
+	$form['table_filter_td16'] = array('#markup' => t('</td></tr></table>'));
+	
+		$form['results'] = array('#markup' => t(session('results')));
+		
+		
+		return $form;
+	}
+	catch (Exception $e) {
+		// Log the exception to watchdog.
+		handle_exception($e);
+	}
+}
+
+function employee_search($form, $form_state) {
+
+	try{
+		$employee_api =  variable_get('Employee_SearchAPI');
+		$isAuthorized = 'true';
+		$agency_api =  variable_get('Employee_AgencyAPI');
+		
+		$test = $agency_api . "?org_id=null";
+		global $user;
+		
+		
+		if ($user->uid == 0) {
+			$isAuthorized = 'none;';
+		}
+		else 
+		
+		{
+			$isAuthorized = 'inline;';
+		}
+		
+		//Clear session
+		session('results', "");
+		$firstname=$form_state['values']['FirstName'];
+		$lastname=$form_state['values']['LastName'];
+		//$phone=$form_state['values']['Phone'];
+		$agency=$form_state['values']['Agency'];
+		if($firstname == "")
+		{
+			$firstname = "null";			
+		}
+		if($lastname == "")
+		{
+			$lastname = "null";
+		}
+		//if($phone == "")
+		//{
+			$phone = "null";
+		//}
+		if($agency == "")
+		{
+			$agency = "null";
+		}
+		$ch = curl_init();
+		
+		$headers = array(
+				"Authorization: Bearer iOdEYtG1i70tHhVEHX5e1YqGBEsa",
+				);		
+		curl_setopt_array($ch, array(
+		CURLOPT_RETURNTRANSFER => 1,
+		CURLOPT_HTTPHEADER => $headers,
+		CURLOPT_URL => "http://172.19.1.173:8285/employee/1.0/get_empinfo?employeeid=null&lastname=" .$lastname ."&firstname=" .$firstname ."&phone=null&email=null&orgid=" .$agency ."&flag=true"
+		));
+		$response = curl_exec($ch);
+		curl_close($ch);
+		
+		$xml = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $response);
+		$xml = simplexml_load_string($xml);		
+		$json = json_encode($xml);
+		$empArray = json_decode($json, true);
+		
+		
+		if (count($empArray) > 0) {
+			if(isset($empArray['employee'][0]))
+			{
+				$empArray = $empArray['employee'];
+			}
+		
+		//My Requests
+			if (count($empArray) > 0) {
+				//$form['results_header'] = array('#markup' => t('<h2>Search Results</h2>'));
+				$tableRows = '<h2>Search Results</h2><table cellpadding="0" cellspacing="0" border="0" class="dataTable" id="example" width="100%">
+						<thead>		
+						<th>First Name</th>
+						<th>Last Name</th>
+						
+						<th>Phone</th>
+						<th style="display:' . $isAuthorized . '">Email</th>	
+								<th>Organization</th>					
+						</thead>';
+				foreach ($empArray as $empArrayItem){		
+					
+					$tableRows .= '<tr><td>' .$empArrayItem['firstname'] .'</td><td>' .$empArrayItem['lastname'] .'</td><td>' .($empArrayItem['phone'] ? $empArrayItem['phone'] : '') .'</td><td style="display: ' . $isAuthorized . ';">' .($empArrayItem['email'] ? $empArrayItem['email'] : '') .'</td><td>' .$empArrayItem['agencyname'] .'</td></tr>';
+		
+				}
+				$tableRows .= '</table>';
+				$form['results'] = array('#markup' => t($tableRows));
+				session('results', $tableRows);
+			}
+			$form['FirstName']['#value'] = $firstname;
+		}	
+		
+	}
+	catch (Exception $e) {
+		// Log the exception to watchdog.
+		handle_exception($e);
+	}
+
+}
+
+
+function Employee_admin() {
+	try {
+		$form = array();
+
+		$form['Agancies'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Angency API'),
+				'#default_value' => variable_get('Employee_AgencyAPI', 'http://172.19.1.173:8285/agency/1.0/get_orglist'),
+				'#description' => t("The API to load agencies."),
+				'#required' => TRUE,
+		);
+		
+		$form['Employee_Search'] = array(
+				'#type' => 'textfield',
+				'#title' => t('User Roles'),
+				'#default_value' => variable_get('Employee_SearchAPI', 'http://172.19.1.173:8285/employee/1.0/get_empinfo'),
+				'#description' => t("API to Search Employees"),
+				'#required' => TRUE,
+		);
+		
+		
+		return system_settings_form($form);
+	}
+	catch (Exception $e) {
+		// Log the exception to watchdog.
+		handle_exception($e);
+	}
+}
+
+/*
+function session($key, $value = NULL) {
+	try {
+		static $storage;
+		if ($value != NULL) {
+			$storage[$key] = $value ;
+			$_SESSION['nr'][$key] = $value ;   // I put 'lists' in case some other module uses 'type' in $_SESSION
+			
+		}
+		else if (empty($storage[$key]) && isset($_SESSION['nr'][$key])) {
+			$storage[$key] = $_SESSION['nr'][$key];
+		}
+		return $storage[$key];
+		
+	}
+	catch (Exception $e) {
+		// Log the exception to watchdog.
+		handle_exception($e);
+	}
+}
+
+*/
+
