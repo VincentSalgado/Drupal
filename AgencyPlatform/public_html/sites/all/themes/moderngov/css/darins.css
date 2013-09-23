@@ -1,0 +1,19 @@
+/* temp css to override styles*/
+
+#home-rotator { 
+  /*min-height: 370px !important;
+  height: auto !important;*/
+}
+
+#home-rotator .home-rotator-slide:last-child {
+  clear:both;
+}
+
+.home-top-intro {
+  height: 125px !important;
+}
+
+#home-rotator .home-rotator-slide:last-child:before {
+  /*content:attr(style);*/
+}
+
