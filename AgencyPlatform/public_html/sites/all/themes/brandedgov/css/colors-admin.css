@@ -1,6 +1,6 @@
 #palette .form-item {
-    width: 30em !important;
-	display: none;
+    width: 30em !important; 
+    display: none;
 }
 .color-form label {
     width: 25em !important;
@@ -10,5 +10,5 @@
 }
 #placeholder,
 .color-form h2 {
-	display: none !important;
+display: none !important;
 }

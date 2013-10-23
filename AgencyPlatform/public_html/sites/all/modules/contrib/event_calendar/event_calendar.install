@@ -55,6 +55,12 @@ function is_node_type_already_exist($node_type, $ext) {
  */
 function event_calendar_uninstall() {
   $node_type = variable_get('event_calendar_node_type', 'event_calendar');
+  // Delete nodes.
+  $result = db_select('node')->fields('node', array('nid'))->condition('type', $node_type)->execute();
+  while ($obj = $result->fetchObject()){
+    node_delete($obj->nid);
+  }
+
   // Delete content type and all fields.
   $instances = field_info_instances('node', $node_type);
   foreach ($instances as $instance_name => $instance) {

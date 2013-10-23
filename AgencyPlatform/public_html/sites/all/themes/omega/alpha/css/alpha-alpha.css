@@ -56,8 +56,11 @@
   margin-right: 0.25em;
 }
 
+/* NB - added max-width and height to repair responsive images */
 img {
-  vertical-align: bottom;
+  	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
 }
 
 .field-label-inline .field-label,

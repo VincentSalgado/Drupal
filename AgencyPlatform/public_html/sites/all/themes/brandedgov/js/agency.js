@@ -2,10 +2,11 @@ if (!window.console) console = {log: function() {}};
 
 jQuery(window).load(function() { //window.load instead of document.ready because I need images to have loaded before measuring sizes
   //Contain Site Name and Slogan in the available area.
-  jQuery('.site-name').fitText(1, { minFontSize: '16px', maxFontSize:'28px'});
-  jQuery('.site-slogan').fitText(1, { minFontSize: '9px', maxFontSize:'11px'});
-  jQuery('.footer-site-name').fitText(1, { minFontSize: '18px', maxFontSize:'22px'});
-  jQuery('.footer-site-slogan').fitText(1, { minFontSize: '9px', maxFontSize:'11px'});
+  //jQuery('.site-name').fitText(1, { minFontSize: '16px', maxFontSize:'28px'});
+  //jQuery('.site-slogan').fitText(1, { minFontSize: '9px', maxFontSize:'11px'});
+  //jQuery('.footer-site-name').fitText(1, { minFontSize: '18px', maxFontSize:'22px'});
+  //jQuery('.footer-site-slogan').fitText(1, { minFontSize: '9px', maxFontSize:'11px'});
+
   //Footer animation
   var footerMenuHeight = jQuery('#footer-menu').outerHeight(true);
   var wrapperHeight = jQuery('#zone-footer-wrapper').outerHeight(true);
@@ -19,12 +20,12 @@ jQuery(window).load(function() { //window.load instead of document.ready because
   //  function(){
   //    jQuery('#footer-nav').animate({height:footerMenuHeight + footerNavHeight},200);
   //    jQuery('html, body').animate({ scrollTop: jQuery(document).height() }, 1000);
-  //    jQuery('#footer-tab').attr('src', '/sites/all/themes/agency_2/img/icons/icon-tab-minus.png');
+  //    jQuery('#footer-tab').attr('src', '/sites/all/themes/brandedgov/img/icons/icon-tab-minus.png');
   //  },
   //  function(){
   //    jQuery('#footer-nav').animate({height:footerNavHeight},200);
   //    jQuery('#zone-footer-wrapper').animate({'padding-top':15}, 200);
-  //    jQuery('#footer-tab').attr('src', '/sites/all/themes/agency_2/img/icons/icon-tab-plus.png');
+  //    jQuery('#footer-tab').attr('src', '/sites/all/themes/brandedgov/img/icons/icon-tab-plus.png');
   //  }
   //);
 
@@ -41,13 +42,13 @@ jQuery(document).ready( function(){
   //Colorize images
   var link_color = (jQuery('#zone-preface a').css('color')).replace('#','');
 
-  jQuery('.more-link > a')          .css('background-image', 'url("/sites/all/themes/agency_2/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
-  jQuery('.views-field-view-node a').css('background-image', 'url("/sites/all/themes/agency_2/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
-  jQuery('a.views-more-link')       .css('background-image', 'url("/sites/all/themes/agency_2/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
-  //jQuery('.view-id-documents')      .css('background-image', 'url("/sites/all/themes/agency_2/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
-  //jQuery('class^="block-views-documents-block-"')      .css('background-image', 'url("/sites/all/themes/agency_2/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
-  jQuery('.download-link a')        .css('background-image', 'url("/sites/all/themes/agency_2/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
-  jQuery('.file a')                 .css('background-image', 'url("/sites/all/themes/agency_2/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
+  jQuery('.more-link > a')          .css('background-image', 'url("/sites/all/themes/brandedgov/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
+  jQuery('.views-field-view-node a').css('background-image', 'url("/sites/all/themes/brandedgov/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
+  jQuery('a.views-more-link')       .css('background-image', 'url("/sites/all/themes/brandedgov/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
+  //jQuery('.view-id-documents')      .css('background-image', 'url("/sites/all/themes/brandedgov/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
+  //jQuery('class^="block-views-documents-block-"')      .css('background-image', 'url("/sites/all/themes/brandedgov/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
+  jQuery('.download-link a')        .css('background-image', 'url("/sites/all/themes/brandedgov/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
+  jQuery('.file a')                 .css('background-image', 'url("/sites/all/themes/brandedgov/img/colorize.php?image=icon-arrow&color=' + link_color + '")');
 
   //positionFooter(); 
   //function positionFooter(){

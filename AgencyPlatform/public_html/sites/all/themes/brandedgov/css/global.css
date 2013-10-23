@@ -77,10 +77,12 @@ p {
   line-height:20px;
   margin-bottom: 10px;
 }
+
 img, a img {
   border: none;
   outline: none;
 }
+
 dl {
   margin: .5em 0 1em;
   padding: 0;
@@ -424,7 +426,9 @@ img.photo {
  {
   color: #333;
   line-height: 1.4em;
-  padding-bottom: 15px;
+  /* NB - adding padding for spacing between nodes on front page blog view */
+  padding-bottom: 10px;
+  /* end custom */
 }
 
 h1#page-title {
@@ -495,6 +499,10 @@ h1#page-title {
 	background: url("../img/icons/icon-news.png") no-repeat scroll 13px 8px;
 }
 .page-blogs #zone-content h1:before,
+/* NB added to add icon to blog entries */
+.page-about #zone-content h1:before,
+.node-type-blog-entry #zone-content h1:before,
+/* end custom */
 #zone-content section[class*='block-views-blogs-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-blog.png") no-repeat scroll 13px 8px;
 }
@@ -508,16 +516,29 @@ h1#page-title {
 #zone-content section[class*='block-views-services-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-services.png") no-repeat scroll 13px 8px;
 }
+/*NB added to add icon to showcase site "events" */
+.page-event-created #zone-content h1:before,
+.node-type-event-created #zone-content h1:before,
+/* end custom */
 .page-events #zone-content h1:before,
+.node-type-event #zone-content h1:before,
 #zone-content section[class*='block-views-events-list-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-events.png") no-repeat scroll 13px 8px;
 }
+/* NB added to add icon to showcase site "gallery" */
+.page-gallery #zone-content h1:before,
+.node-type-gallery #zone-content h1:before,
+/*end custom*/
 .page-media-room #zone-content h1:before,
 .page-multimedia #zone-content h1:before,
+.node-type-media-gallery #zone-content h1:before,
+.node-type-photo #zone-content h1:before,
 #zone-content section[class*='block-views-media-gallery-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-media.png") no-repeat scroll 13px 8px;
 }
 .page-staff-directory #zone-content h1:before,
+.node-type-profile #zone-content h1:before,
+.page-user  #zone-content h1:before,
 #zone-content section[class*='block-views-profiles-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-profile.png") no-repeat scroll 13px 8px;
 }
@@ -548,18 +569,20 @@ h1#page-title {
 #zone-footer h2 {
     line-height: 2.8em;
 }
+#zone-content h2.block-title, 
+#zone-content #stay-connected h3 {
+	padding-bottom: 20px;
+}
 
 #zone-preface .views-row {
 	border-bottom: none;
 }
 .views-row {
   border-bottom: none !important;
-  margin: 0 0 10px;
-  padding: 0 0 5px;
 }
 .view-id-services .views-row {
- margin: 0;
- padding: 0;
+  margin: 0 0 10px;
+    padding: 0 0 5px;
 }
 .home-page .views-row {
   margin: 0 0 5px;
@@ -775,7 +798,10 @@ a.views-more-link,
   font-size: 0.8em;
   text-align: left;
   text-transform: uppercase;
-  padding: 5px 0;  
+  /* NB - commented out original padding and added custom to provide space between the more link and the next content node */
+  /* padding: 5px 0; */
+  padding: 5px 0 20px 0;
+  /* end custom */  
 }
 
 .more-link a,
@@ -956,7 +982,9 @@ div.node .field-name-field-services-photo {
 .view-id-metrology .photo img,
 .view-id-consumer_tips .photo img,
 .view-id-about .photo img {
-  border: 2px solid #ccc;
+  /* NB - removed border from node images */
+  /* border: 2px solid #ccc; */
+  /* End custom */
   margin: 0 10px 10px 0;
 
 }
@@ -1721,6 +1749,9 @@ float: left;
 	  max-width: 260px;
 }
 .footer-site-name {
+	/* NB custom size - css is not picking up from vendor's styles found in class .site-name-slogan .site-name as expected */
+       font-size: 1.5em;
+	/* end custom */
 	line-height: 1em;
 	color: #333;
 }
@@ -1743,7 +1774,9 @@ float: left;
 }
 .group_column2 {
 	margin-left: 0px;
-    width: auto;
+	width: auto;
+	float: left;
+	padding-top: 25px;
 }
 .field-name-field-address-name {
 	font-weight: bold;
@@ -1757,7 +1790,7 @@ float: left;
 	max-width: 150px;
 	max-height: 150px;
 	float: left;
-	margin-right: 10px;
+/*	margin-right: 10px;*/
 }
 
 .field-name-field-address-name,
@@ -1766,7 +1799,7 @@ float: left;
 .field-name-field-google-maps-link,
 .field-name-field-phone-number,
 .field-name-field-fax {
-	padding: staf--0;
+	padding: 3px 0;
 }
 
 
@@ -2188,7 +2221,8 @@ div.node div.field-name-field-resource-photo {
   margin-bottom: 0;
 }
 .staff-page .exec {
-  background: #f5fafb;
+  /* NB remove background striping */ 
+  /* background: #f5fafb; */
 }
 .staff-page  .views-row-first   {
   border: 1px solid #ccc !important;
@@ -2244,6 +2278,12 @@ div.node div.field-name-field-resource-photo {
 	float: left;
 	padding-right: 20px;
 }
+
+/* NB adding missing margin below job title in staff block */
+.field-content {
+margin-bottom: 10px;
+}
+/* end custom */
 
 /******* Comments
 ********/
@@ -2495,3 +2535,10 @@ ul.twitter-list li {
     padding: 0;
 }
 
+#cboxPrevious, 
+#cboxNext, 
+#cboxClose, 
+#cboxSlideshow 
+ {
+	border: 0;
+}

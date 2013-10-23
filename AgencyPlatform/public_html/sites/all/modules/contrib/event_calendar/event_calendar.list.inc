@@ -96,8 +96,8 @@ function event_admin_events() {
           '#suffix' => ' ' . theme('mark', array('type' => node_mark($node->nid, $node->changed))),
         ),
       ),
-      'start-date' => $dates['start_date'],
-      'end-date' => $dates['end_date'],
+      'start-date' => isset($dates['start_date'])?$dates['start_date']:NULL,
+      'end-date' => isset($dates['end_date'])?$dates['end_date']:NULL,
       'status' => $flag1 . $status . $flag2,
     );
   }
@@ -164,10 +164,14 @@ function event_calendar_status($node) {
 function event_calendar_dates($node) {
   // Build query to fetch events dates.
   // Event start date.
-  $dates['start_date'] = $node->event_calendar_date[$node->language][0]['value'];
-  // Event end date.
-  $dates['end_date'] = $node->event_calendar_date[$node->language][0]['value2'];
-
+  $dates = array(NULL);
+  if(isset($node->event_calendar_date[$node->language][0]['value'])) {
+    $dates['start_date'] = $node->event_calendar_date[$node->language][0]['value'];
+    // Event end date.
+  }
+  if(isset($node->event_calendar_date[$node->language][0]['value2'])) {
+    $dates['end_date'] = $node->event_calendar_date[$node->language][0]['value2'];
+  }
   return $dates;
 }
 

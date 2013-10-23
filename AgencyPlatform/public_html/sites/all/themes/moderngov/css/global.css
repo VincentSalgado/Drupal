@@ -442,7 +442,10 @@ h1#page-title {
 	border-bottom: none;
 }
 #zone-preface .content {
-	padding: 20px;
+/* NB - commented out original padding and added new padding to remove bottom padding on contetn boxes in order to accomodate extra spacing needed for class .more-link */
+	/* padding: 20px;*/
+	padding: 20px 20px 0 20px;
+	/* end custom */
 }
 
 #zone-preface .content .content,
@@ -703,7 +706,10 @@ a.views-more-link,
   font-size: 0.8em;
   text-align: left;
   text-transform: uppercase;
-  padding: 5px 0;
+  /* NB - commenting out original padding and adding padding to increase space between more link and content node below it */
+  /* padding: 5px 0;*/
+  padding: 5px 5px 20px 0;
+  /* end custom */
   
 }
 
@@ -903,7 +909,9 @@ div.node .field-name-field-services-photo {
 .view-id-metrology .photo img,
 .view-id-consumer_tips .photo img,
 .view-id-about .photo img {
-  border: 2px solid #ccc;
+  /* NB - remove border from node img */
+  /* border: 2px solid #ccc; */
+  /* End custom */
   margin: 0 10px 10px 0;
 
 }
@@ -1657,10 +1665,11 @@ float: left;
 	  max-width: 260px;
 }
 .footer-site-name {
+	font-size: 1.5em;
 	line-height: 1em;
 }
 .footer-site-slogan {
-	font-size: 1em;
+	font-size: .9em;
 	text-transform:uppercase;
 	letter-spacing: 0;
 }
@@ -2120,7 +2129,8 @@ div.node div.field-name-field-resource-photo {
   margin-bottom: 0;
 }
 .staff-page .exec {
-  background: #f5fafb;
+  /* NB - removing the background color row striping from profile list */
+  /* background: #f5fafb; */
 }
 .staff-page  .views-row-first   {
   border: 1px solid #ccc !important;
@@ -2414,4 +2424,22 @@ ul.twitter-list li {
 	behavior: url("../css/PIE.php");
 }
 
+/* temp css to override styles*/
+
+#home-rotator {
+  /*min-height: 370px !important;
+ *   height: auto !important;*/
+}
+
+#home-rotator .home-rotator-slide:last-child {
+  clear:both;
+}
+
+.home-top-intro {
+  height: 125px !important;
+}
+
+#home-rotator .home-rotator-slide:last-child:before {
+  /*content:attr(style);*/
+}
 

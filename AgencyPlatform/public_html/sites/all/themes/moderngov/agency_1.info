@@ -428,8 +428,8 @@ settings[background_image_url] = '/images/background-image.jpg'
 stylesheets[all][] = 'css/colors.css'
 
 ; Information added by drupal.org packaging script on 2012-03-19
-version = "7.x-1.0"
+version = "7.x-1.1"
 core = "7.x"
-project = "agency_1"
+project = "moderngov"
 datestamp = "1371714696"
 
