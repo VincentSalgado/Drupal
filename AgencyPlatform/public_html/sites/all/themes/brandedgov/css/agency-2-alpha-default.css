@@ -529,10 +529,13 @@ form#search-block-form input.form-submit {
   width: 620px ;
 }
 
-.home-rotator-photo img {
+/*NB - commenting out to fix responsiveness issue*/
+/*.home-rotator-photo img {
   width: 620px;
   height:auto ;
-}
+}*/
+
+/*End custom*/
 
 /* changes made to allow preface 1st to be used */
 #home-rotator {

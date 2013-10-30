@@ -15,7 +15,9 @@
 
 /* show navigation that was hidden for mobile. */
 #block-search-form {
-    float: left;
+       /*NB - swichted float to right to move search box to right side of screen*/  
+       float: right;
+       /*end custom*/
 }
 #block-system-main-menu {
 	float: left;

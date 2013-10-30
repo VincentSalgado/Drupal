@@ -426,9 +426,6 @@ img.photo {
  {
   color: #333;
   line-height: 1.4em;
-  /* NB - adding padding for spacing between nodes on front page blog view */
-  padding-bottom: 10px;
-  /* end custom */
 }
 
 h1#page-title {
@@ -547,6 +544,7 @@ h1#page-title {
 	background: url("../img/icons/icon-documents.png") no-repeat scroll 13px 8px;
 }
 .page-webform #zone-content h1:before,
+.node-type-webform #zone-content h1:before,
 #zone-content section[class*='block-views-webform-block'] h2.block-title:before {
 	background: url("../img/icons/icon-webform.png") no-repeat scroll 13px 8px;
 }

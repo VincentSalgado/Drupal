@@ -365,6 +365,9 @@ form#search-block-form input.form-submit {
 }
 .home-rotator-photo img, .home-rotator-slide img {
     width:auto;
+    /*NB adding height to fix responsive issue*/
+    height: 278px;
+    /*end custom*/
     margin: 0;
 	float: right;
 }
