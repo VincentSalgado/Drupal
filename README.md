@@ -1,4 +1,4 @@
-Drupal-Dev
+Drupal
 ==========
 
-Drupal development repo.
+State of Arizona - Drupal Distribution
