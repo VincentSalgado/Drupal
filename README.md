@@ -1,4 +1,4 @@
-Drupal-Dev
+Drupal
 ==========
 
 You can find informatoin about Installing the agency platform on
