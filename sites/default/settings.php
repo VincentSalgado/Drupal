@@ -228,7 +228,7 @@ $databases = array (
 
 /**
  * Access control for update.php script.
- ***
+ *
  * If you are updating your Drupal installation using the update.php script but
  * are not logged in using either an account with the "Administer software
  * updates" permission or the site maintenance account (the account that was
@@ -578,4 +578,10 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
 #  'cache_filter' => 'default',
 #  'cache_menu' => 'default',
 #);
+
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $_SERVER['HTTPS'] = 'on';
+}
+
 
