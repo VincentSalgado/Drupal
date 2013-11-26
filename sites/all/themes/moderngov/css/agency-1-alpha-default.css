@@ -497,7 +497,12 @@ form#search-block-form input.form-submit {
 }
 
 .footer-branding {
-	width:26%; 
+	/*
+	 * MD Adjusted width due to the padding change of the container
+	 * width:26%;
+	 */
+	width:30%;
+	 
 	float: left;
 }
 
@@ -513,8 +518,13 @@ form#search-block-form input.form-submit {
 
 .node-content .webform-client-form .grippie, .node-content .webform-client-form textarea, .node-content .webform-client-form input, .webform-client-form select,
 .node-content .webform-client-form select {
-	width: 460px;
-	
+	/*
+	 * MD - Fixed width to make checkbox labels fit inline
+	 * width: 460px;
+	 */
+	width:auto;
+	display:inline;
+	padding-left:10x;
 }
 
 .node-content .webform-client-form textarea {

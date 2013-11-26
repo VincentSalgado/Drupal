@@ -313,7 +313,11 @@ form#search-block-form input.form-submit {
  */
 .view-home-page-feature-rotator {
   margin-left: 0;
-  width: 102%;
+  /*
+   * MD - Adjusted width to eliminate bottom scroll bar
+   * width: 102%;
+   */
+  width:100%;
 }
 #zone-header.container-12 .grid-12 {
 	width: 100% !important; 
@@ -431,10 +435,18 @@ form#search-block-form input.form-submit {
 #block-nodeblock-contact-us {
 	float: right;
 	width: 55%;
+	/*
+	 * MD - Added min-width since padding was removed
+	 */
+	min-width:570px;
 } 
 .field-name-field-map-image {
 	float: right;
 	margin-top: 0px;
+	/*
+	 * MD - adding padding since container padding was removed
+	 */
+	padding-right:20px;
 }
 .group_address {
 	width: 69%;
@@ -496,6 +508,10 @@ form#search-block-form input.form-submit {
 	float: left;
 	min-height: 153px;
 	width: 35%;
+	/*
+	 * MD added min-width since padding was removed
+	 */
+	min-width:360px;
 }
 
 /**/
@@ -512,7 +528,13 @@ form#search-block-form input.form-submit {
 
 .node-content .webform-client-form .grippie, .node-content .webform-client-form textarea, .node-content .webform-client-form input, .webform-client-form select,
 .node-content .webform-client-form select {
-	width: 460px;
+	/*
+	 * MD Adjusted to correct select boxes
+	 * width: 460px;
+	 */
+	width:auto;
+	display:inline;
+	padding-left:10x;
 	
 }
 

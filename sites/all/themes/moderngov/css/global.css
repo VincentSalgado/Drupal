@@ -719,6 +719,12 @@ a.views-more-link,
 a.views-more-link,
 .view-id-documents .download-link a,
 .file {
+	/*
+	 * MD - added display and width to correct button overflow
+	 */
+	display:block;
+	width:100px;
+	
 	background:  url("../img/bullet-arrow.png") no-repeat scroll 95% center transparent;
 	padding: 10px 45px 10px 20px;
 	border-radius: 50px; 
@@ -1527,9 +1533,14 @@ clear: both;
   margin: 0;
 }
 .footer-branding  {
-	width:90%; 
+	/*
+	 * MD - Adjusted width and padding to eliminate bottom scroll bar
+	 * width:90%;
+	 * padding: 0 20px 10px ;
+	 */
+	width:87%; 
 	float:none;
-	padding: 0 20px 10px ;
+	padding: 0px 0px 10px 10px;
 }
 #footer-logo-subscribe .logo{
 	float: left;
@@ -1638,14 +1649,24 @@ float: left;
 	font-family:Georgia, "Times New Roman", Times, serif;
 }
 #block-nodeblock-contact-us {
+	/* MD - Adjusted the padding to eliminate bottom scroll bar
+	 * padding: 10px 20px;
+	 */
 	float: left;
     width: 100%;
-	padding: 10px 20px;
+	padding: 10px 0px;
 }
 #block-nodeblock-contact-us h2 {
 	border-bottom: 1px solid #CCCCCC;
     margin-bottom: 10px;
     padding-bottom: 0;
+}
+
+/*
+ * MD - addeding padding for astetic reasons with mobile devices
+ */
+#block-nodeblock-contact-us > div:nth-child(1) {
+	padding-left:20px;
 }
 
 #block-nodeblock-agency-footer-branding h2 {
@@ -1654,7 +1675,11 @@ float: left;
 #footer-logo {
 	float:left;
 	margin-right: 10px;
-	
+		/*
+	 * MD - Adjusted padding to look better since container padding was removed
+	 */
+	padding: 0 0 10px 20px;
+
 }
 #footer-text {
 	width: 200px;
@@ -1746,8 +1771,12 @@ float: left;
 }
 
 .region-footer-second-inner {
-  width: 960px;
-  margin: 0px auto;
+	/* MD - Changed fixed width and adjusted the margin to eliminate bottom scroll bar
+     * width: 960px;
+  	 */
+ 	max-width: 960px;
+	width: 100%;
+	margin: 0px auto;
 }
 
 #footer-logo-subscribe, #footer-nav, #footer-utility {
@@ -2169,22 +2198,52 @@ div.node div.field-name-field-resource-photo {
 	clear: left;
 	background: url("../img/icons/icon-address-small.png") no-repeat 0 0px;
 	width: auto;
-	height: 30px;
-	padding: 5px 0 0px 40px;
+	/*
+	 * MD - changed attributes to for better formatting within contributor role
+	 *
+	 * height: 30px;
+	 * padding: 5px 0 0px 40px;
+	 */
+	
+	height: auto;
+	padding: 5px 0 0px 0px;
+}
+/*
+ * MD - added formatting to space the field away from the icon above
+ */
+#field-profile-organization-add-more-wrapper {
+	padding-top: 10px;
+	width: 385px;
 }
 .field-name-field-profile-address {
 	width: auto;
-	margin-top: -10px;
-	padding: 0px 0 20px 40px;
+	
+	/*
+	 * MD - Changed padding to keep a consistent look with the other fields
+	 * padding: 0px 0 20px 40px;
+	 * margin-top: -10px;
+	 */
+	
+	padding: 0px 0 20px 0px;
 }
 .field-name-field-profile-photo{
 	float: left;
+	/*
+	 * MD - Added width to push other fields lower
+	 */
+	width:100%;
 }
 
 .views-field-field-profile-email, .views-field-field-profile-phone, .field-name-field-profile-phone, .field-name-field-profile-email  {
 	display:inline; 
 	float: left;
-	padding-right: 20px;
+	/*
+	 * MD - added attributes to help formatting when adding profiles as contributor
+	 * padding-right: 20px;
+	 */
+	height: auto;
+	padding: 30px 0 10px 0px;
+	width: 100%;
 }
 
 /******* Comments
@@ -2382,7 +2441,11 @@ ul.twitter-list li {
 .node-content .webform-client-form label {
 	width: auto;
 	text-align: left;
-	padding: 0;
+	/*
+	 * MD Adjusted padding to accomondate webform checkboxes
+	 * padding:0;
+	 */
+	padding-left: 10px;
 }
 .node-content .webform-client-form textarea {
 	float: left;
@@ -2443,3 +2506,27 @@ ul.twitter-list li {
   /*content:attr(style);*/
 }
 
+/*
+ * MD - fixed width & position of pager buttons
+ */
+.pager li.pager-first a, .pager li.pager-previous a, .pager li.pager-next a, .pager li.pager-last a {
+	width:auto;
+	min-width:25px;
+}
+.pager li.pager-next {
+	right:25px;
+}
+
+/*
+ * MD added text font changes to make title stronger in profiles
+ */
+.field-name-field-profile-job-title {
+	font-family: Helvetica, sans-serif;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin: 10px 0 0 0;
+	padding:0;
+	letter-spacing: 0;
+	font-size: 1.2em;
+	color: #660000;
+}

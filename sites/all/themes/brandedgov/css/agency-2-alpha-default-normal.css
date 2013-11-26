@@ -36,6 +36,10 @@ body.node-type-no-sidebars-page #zone-preface {
 #zone-content.container-12 .grid-12 {
 	width: 940px !important; 
 	margin: 20px 1% 0;
+	/*
+	 * MD added padding to center breadcrumbs
+	 */
+	padding-left:10px;
 }
 #home-top-read-more {
 	margin: 0 0 0 30px;
