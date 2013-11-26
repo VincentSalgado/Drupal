@@ -2530,3 +2530,8 @@ ul.twitter-list li {
 	font-size: 1.2em;
 	color: #660000;
 }
+
+.field-type-image {
+	max-width:100%;
+	width:auto;
+}

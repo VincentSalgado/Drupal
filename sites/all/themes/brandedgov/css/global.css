@@ -2505,6 +2505,7 @@ div.field:nth-child(5){
 /*
  * MD - restricted images to a 
  */
-.block-main .content.clearfix img {
-	width:100%;
+.field-type-image {
+	max-width:100%;
+	width:auto;
 }
