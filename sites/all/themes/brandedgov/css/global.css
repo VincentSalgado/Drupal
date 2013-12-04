@@ -2180,7 +2180,7 @@ div.node div.field-name-field-resource-photo {
 	 * padding: 5px 0 0px 40px;
 	 */
 	height: auto;
-	padding: 5px 0 0px 0px;
+	padding: 30px 0px 0px 0px;
 }
 /*
  * MD added formatting to keep with similar look of the other fields
@@ -2489,6 +2489,8 @@ div.field:nth-child(5){
 	letter-spacing: 0;
 	font-size: 1.2em;
 	color: #660000;
+	display:inline-block;
+	width:100%;
 }
 
 /*
@@ -2508,4 +2510,20 @@ div.field:nth-child(5){
 .field-type-image {
 	max-width:100%;
 	width:auto;
+}
+
+
+/*
+ * MD - Added first name and last name formating for display in profiles
+ */
+.field-name-field-profile-first-name, .field-name-field-profile-last-name {
+	display:inline-block;
+	width:100%;
+}
+
+/*
+ * MD - Calendar link in main menu overflows
+ */
+.navigation a.calendar {
+    width:178px;
 }

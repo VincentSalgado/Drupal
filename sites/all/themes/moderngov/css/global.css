@@ -2529,9 +2529,26 @@ ul.twitter-list li {
 	letter-spacing: 0;
 	font-size: 1.2em;
 	color: #660000;
+	display:inline-block;
+	width:100%;
 }
 
 .field-type-image {
 	max-width:100%;
 	width:auto;
+}
+
+/*
+ * MD - Added first name and last name formating for display in profiles
+ */
+.field-name-field-profile-first-name, .field-name-field-profile-last-name {
+	display:inline-block;
+	width:100%;
+}
+
+/*
+ * MD - Calendar link in main menu overflows
+ */
+.navigation a.calendar {
+    width:168px;
 }

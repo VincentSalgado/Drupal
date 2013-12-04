@@ -108,7 +108,7 @@ function az_gov_sliver_get_library_path() {
  */
 function az_gov_sliver_get_library_file() {
 	//Uncomment if you want to switch to the live official sliver once it's hit production
-	return 'https://api.az.gov/sliver/sliver.js';
+	return 'https://static.az.gov/sliver/sliver.js';
 	
 	//Uncomment if you're using a local copy and not the one hosted elsewhere.
 	//return az_gov_sliver_get_library_path() . '/sliver.js';
