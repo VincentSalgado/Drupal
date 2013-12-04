@@ -14,7 +14,7 @@ if ($is_front) {
 <div<?php print $attributes; ?>>
   <?php if (isset($page['header'])) : ?>
     <?php if (theme_get_setting('show_sliver')) : ?>
-      <script src="https://api.az.gov/sliver/sliver.js" type="text/javascript"></script>
+      <script src="https://static.az.gov/sliver/sliver.js" type="text/javascript"></script>
     <?php endif; ?>
 
 
