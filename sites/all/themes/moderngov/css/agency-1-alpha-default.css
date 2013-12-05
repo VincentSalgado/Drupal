@@ -423,7 +423,7 @@ form#search-block-form input.form-submit {
 }
 #block-nodeblock-contact-us {
 	float: right;
-    width: 63%;
+    width: 62%;
 } 
 .field-name-field-map-image {
 	float: right;
@@ -501,7 +501,7 @@ form#search-block-form input.form-submit {
 	 * MD Adjusted width due to the padding change of the container
 	 * width:26%;
 	 */
-	width:30%;
+	width:35%;
 	 
 	float: left;
 }
