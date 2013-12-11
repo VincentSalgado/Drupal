@@ -211,7 +211,13 @@ blockquote p {
 	 color: #333;
 	 font-size:1em;
 }
-hr {}
+hr {
+	/*
+	 * MD - added height and color attributes
+	 */
+	height:3px;
+	background-color:#333;
+}
 
 
 ul, ol {
@@ -389,7 +395,6 @@ img.photo {
 	color: #fff;
 	line-height: 1.3em;
 	letter-spacing: 0em;
-	width: 90%;
 	margin-top: 5px;
 }
 
@@ -726,7 +731,7 @@ a.views-more-link,
 	width:100px;
 	
 	background:  url("../img/bullet-arrow.png") no-repeat scroll 95% center transparent;
-	padding: 10px 45px 10px 20px;
+	padding: 7px 45px 7px 20px;
 	border-radius: 50px; 
 	 white-space: nowrap;
 	-moz-border-radius: 50px; 
@@ -1697,6 +1702,11 @@ float: left;
 	font-size: .9em;
 	text-transform:uppercase;
 	letter-spacing: 0;
+	
+	/*
+	 * MD - added padding in case an extremely long slogan is used.
+	 */
+	padding:0 5px 0 110px;
 }
 .group_address {
 	width: auto;
@@ -2161,6 +2171,9 @@ div.node div.field-name-field-resource-photo {
   /* NB - removing the background color row striping from profile list */
   /* background: #f5fafb; */
 }
+/*
+ *MD -  Removed first row formatting per NB Request
+ *
 .staff-page  .views-row-first   {
   border: 1px solid #ccc !important;
   background: #efefef;
@@ -2180,6 +2193,22 @@ div.node div.field-name-field-resource-photo {
   text-indent: -9999px;
   width: 31px;
 }
+*/
+
+/*
+ * MD changed formatting of views using the "staff-page" css. 
+ */
+.staff-page .views-row-odd{
+	background-color: rgb(238, 238, 238);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	margin-bottom:10px;
+	padding-top:10px;
+	margin-top:10px;
+}
+
+.staff-page .views-row:hover{
+	background-color: #FAF3E3; 
+}
 
 .field-name-field-profile-phone, .views-field-field-profile-phone  {
 	clear: left;
@@ -2188,6 +2217,22 @@ div.node div.field-name-field-resource-photo {
 	height: 30px;
 	padding: 10px 0 10px 40px;
 }
+
+/*
+ * MD - added icon for secondary phone number field
+ */
+.field-name-field-secondary-phone-number, .views-field-field-secondary-phone-number {
+	clear: left;
+	background: url("../img/icons/icon-phone-small.png") no-repeat 0 0px;
+	width: auto;
+	height: 30px;
+	padding: 10px 0 20px 0px;
+}
+
+.field-name-field-secondary-phone-number .field-label, .views-field-field-secondary-phone-number .views-label {
+	padding-left:40px;
+}
+
 .field-name-field-profile-email, .views-field-field-profile-email {
 	background: url("../img/icons/icon-email-small.png") no-repeat 0 0px;
 	width: auto;
@@ -2206,7 +2251,7 @@ div.node div.field-name-field-resource-photo {
 	 */
 	
 	height: auto;
-	padding: 30px 0 0px 0px;
+	padding: 5px 0 0px 0px;
 }
 /*
  * MD - added formatting to space the field away from the icon above
@@ -2529,6 +2574,10 @@ ul.twitter-list li {
 	letter-spacing: 0;
 	font-size: 1.2em;
 	color: #660000;
+	
+	/*
+	 * MD - added display and width
+	 */
 	display:inline-block;
 	width:100%;
 }
@@ -2536,6 +2585,13 @@ ul.twitter-list li {
 .field-type-image {
 	max-width:100%;
 	width:auto;
+}
+
+/*
+ * MD - Calendar link in main menu overflows
+ */
+.navigation a.calendar {
+    width:168px;
 }
 
 /*
@@ -2547,8 +2603,24 @@ ul.twitter-list li {
 }
 
 /*
- * MD - Calendar link in main menu overflows
+ * MD added captcha width to prevent it from pushing to the right
  */
-.navigation a.calendar {
-    width:168px;
+.captcha {
+	width:100%;
+}
+/*
+ * MD - added formatting of iframe components
+ */
+.field-name-body iframe{
+	max-width: 100%;
+}
+
+/*
+ * MD - overrides 100% max width to fix webkit rendering image width wrong
+ */
+td img {
+	max-width:900px;
+}
+.webform-component-fieldset {
+	width:100%
 }

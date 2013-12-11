@@ -258,6 +258,11 @@ blockquote p {
 	font-size: 1em;
 }
 hr {
+	/*
+	 * MD - added height and color attributes
+	 */
+	height:3px;
+	background-color:#333;
 }
 
 ul, ol {
@@ -435,7 +440,6 @@ img.photo {
 	color: #fff;
 	line-height: 1.3em;
 	letter-spacing: 0.05em;
-	width: 90%;
 	margin-top: 5px;
 }
 
@@ -481,7 +485,11 @@ h1#page-title {
 	padding: 20px 20px 5px;
 	color: #333;
 	font-weight: 500;
-	white-space: nowrap;
+	/*
+	 * MD Removed no wrap to wrap text when window is a certain width
+	 * white-space: nowrap;
+	 */
+	
 	border-bottom: none;
 }
 
@@ -525,7 +533,7 @@ h1#page-title {
 /*NB added to add icon to showcase site "events" */
 .page-event-created #zone-content h1:before, .node-type-event-created #zone-content h1:before,
 /* end custom */
-.page-events #zone-content h1:before, .node-type-event #zone-content h1:before, #zone-content section[class*='block-views-events-list-block-'] h2.block-title:before {
+.page-events #zone-content h1:before, .node-type-event #zone-content h1:before, #zone-content section[class*='block-views-events-list-block-'] h2.block-title:before , #zone-content section[class*='block-views-calendar-block-'] h2.block-title:before{
 	background: url("../img/icons/icon-events.png") no-repeat scroll 13px 8px;
 }
 /* NB added to add icon to showcase site "gallery" */
@@ -560,18 +568,31 @@ h1#page-title {
 }
 
 #zone-content h2, #zone-footer h2 {
-	line-height: 2.8em;
+	/*
+	 * MD Adjusted line-height primarily for wrapped titles then added a top padding
+	 * line-height: 2.8em;
+	 */
+	line-height:1.5em;
+	padding-top:10px;
 }
 #zone-content h2.block-title, #zone-content #stay-connected h3 {
-	padding-bottom: 20px;
+	/*
+	 * MD - Increased padding bottom to give space below icon if image is below
+	 * padding-bottom: 20px;
+	 */
+	padding-bottom:23px;
 }
 
 #zone-preface .views-row {
 	border-bottom: none;
+	
 }
 .views-row {
 	border-bottom: none !important;
+
 }
+
+
 .view-id-services .views-row {
 	margin: 0 0 10px;
 	padding: 0 0 5px;
@@ -1182,7 +1203,13 @@ position: relative;
 	margin-top: 6px;
 	top: 0;
 	box-shadow: none;
+	
+	/*
+	 * MD Added margin adjustment for chrome browser on child menu items
+	 */
+	-webkit-margin-before:-40px;
 }
+
 
 /* custom boxes */
 #zone-content {
@@ -1701,6 +1728,10 @@ ul li a.calculator:hover {
 	text-transform: uppercase;
 	letter-spacing: 0;
 	color: #333;
+	/*
+	 * MD - added padding in case an extremely long slogan is used.
+	 */
+	padding:0 5px 0 110px;
 }
 .group_address {
 	width: auto;
@@ -2139,6 +2170,11 @@ div.node div.field-name-field-resource-photo {
 	/* NB remove background striping */
 	/* background: #f5fafb; */
 }
+
+
+/*
+ * MD - Removed first row formatting per NB Request
+
 .staff-page  .views-row-first {
 	border: 1px solid #ccc !important;
 	background: #efefef;
@@ -2156,14 +2192,46 @@ div.node div.field-name-field-resource-photo {
 	text-indent: -9999px;
 	width: 31px;
 }
+*/
 
-.field-name-field-profile-phone, .views-field-field-profile-phone {
+/*
+ * MD changed formatting of views using the "staff-page" css. 
+ */
+.staff-page .views-row-odd{
+	background-color: rgb(238, 238, 238);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	margin-bottom:10px;
+	padding-top:10px;
+	margin-top:10px;
+}
+
+.staff-page .views-row:hover{
+	background-color: #FAF3E3; 
+}
+
+.field-name-field-profile-phone, .views-field-field-profile-phone{
 	clear: left;
 	background: url("../img/icons/icon-phone-small.png") no-repeat 0 0px;
 	width: auto;
 	height: 30px;
 	padding: 10px 0 10px 40px;
 }
+
+/*
+ * MD - added icon for secondary phone number field
+ */
+.field-name-field-secondary-phone-number, .views-field-field-secondary-phone-number {
+	clear: left;
+	background: url("../img/icons/icon-phone-small.png") no-repeat 0 0px;
+	width: auto;
+	height: 30px;
+	padding: 10px 0 20px 0px;
+}
+
+.field-name-field-secondary-phone-number .field-label, .views-field-field-secondary-phone-number .views-label {
+	padding-left:40px;
+}
+
 .field-name-field-profile-email, .views-field-field-profile-email {
 	background: url("../img/icons/icon-email-small.png") no-repeat 0 0px;
 	width: auto;
@@ -2505,13 +2573,19 @@ div.field:nth-child(5){
 }
 
 /*
- * MD - restricted images to a 
+ * MD - restricted images to a width
  */
 .field-type-image {
 	max-width:100%;
 	width:auto;
 }
 
+/*
+ * MD - Calendar link in main menu overflows
+ */
+.navigation a.calendar {
+    width:178px;
+}
 
 /*
  * MD - Added first name and last name formating for display in profiles
@@ -2522,8 +2596,25 @@ div.field:nth-child(5){
 }
 
 /*
- * MD - Calendar link in main menu overflows
+ * MD - added formatting of iframe components
  */
-.navigation a.calendar {
-    width:178px;
+.field-name-body iframe{
+	max-width: 100%;
+}
+
+/*
+ * MD - overrides 100% max width to fix webkit rendering image width wrong
+ */
+td img{
+	max-width:900px;
+}
+
+/*
+ * MD added captcha width to prevent it from pushing to the right
+ */
+.captcha {
+	width:100%;
+}
+.webform-component-fieldset {
+	width:100%
 }
