@@ -2624,3 +2624,10 @@ td img {
 .webform-component-fieldset {
 	width:100%
 }
+
+/*
+ * MD added captcha width to prevent it from pushing to the right
+ */
+.captcha {
+	width:100%;
+}

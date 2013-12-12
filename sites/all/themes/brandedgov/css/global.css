@@ -514,45 +514,65 @@ h1#page-title {
 	width: 60px;
 }
 
-.page-press-releases #zone-content h1:before, #zone-content section[class*='block-views-press-releases-block-'] h2.block-title:before {
+/****************************************
+ * MD - removed page restrictions on icons to set them to default. Icons will be applied using css injector
+ * pages removed are noted by term 'INJECTOR'
+ *******************************************/
+
+/* INJECTOR .page-press-releases #zone-content h1:before, */ 
+#zone-content section[class*='block-views-press-releases-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-news.png") no-repeat scroll 13px 8px;
 }
-.page-blogs #zone-content h1:before,
+
+/*.INJECTOR page-blogs #zone-content h1:before, .page-about #zone-content h1:before, */
 /* NB added to add icon to blog entries */
-.page-about #zone-content h1:before, .node-type-blog-entry #zone-content h1:before,
+.node-type-blog-entry #zone-content h1:before,
 /* end custom */
 #zone-content section[class*='block-views-blogs-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-blog.png") no-repeat scroll 13px 8px;
 }
-.page-resources #zone-content h1:before, .node-type-resource #zone-content h1:before, #zone-content section[class*='block-views-resources-block-'] h2.block-title:before {
+
+/* INJECTOR .page-resources #zone-content h1:before, */
+.node-type-resource #zone-content h1:before, #zone-content section[class*='block-views-resources-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-resources.png") no-repeat scroll 13px 8px;
 }
+
+/* INJECTOR .page-services #zone-content h1:before, */
 .page-services #zone-content h1:before, .node-type-services #zone-content h1:before, #zone-content section[class*='block-views-services-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-services.png") no-repeat scroll 13px 8px;
 }
+
+/* INJECTOR .page-event-created #zone-content h1:before, .page-events #zone-content h1:before, */
 /*NB added to add icon to showcase site "events" */
-.page-event-created #zone-content h1:before, .node-type-event-created #zone-content h1:before,
+.node-type-event-created #zone-content h1:before,
 /* end custom */
-.page-events #zone-content h1:before, .node-type-event #zone-content h1:before, #zone-content section[class*='block-views-events-list-block-'] h2.block-title:before , #zone-content section[class*='block-views-calendar-block-'] h2.block-title:before{
+.node-type-event-calendar #zone-content h1:before, #zone-content section[class*='block-views-events-list-block-'] h2.block-title:before , #zone-content section[class*='block-views-calendar-block-'] h2.block-title:before{
 	background: url("../img/icons/icon-events.png") no-repeat scroll 13px 8px;
 }
+
+/* INJECTOR .page-gallery #zone-content h1:before, .page-media-room #zone-content h1:before, */
 /* NB added to add icon to showcase site "gallery" */
-.page-gallery #zone-content h1:before, .node-type-gallery #zone-content h1:before,
+.node-type-gallery #zone-content h1:before,
 /*end custom*/
-.page-media-room #zone-content h1:before, .page-multimedia #zone-content h1:before, .node-type-media-gallery #zone-content h1:before, .node-type-photo #zone-content h1:before, #zone-content section[class*='block-views-media-gallery-block-'] h2.block-title:before {
+.page-multimedia #zone-content h1:before, .node-type-media-gallery #zone-content h1:before, .node-type-photo #zone-content h1:before, #zone-content section[class*='block-views-media-gallery-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-media.png") no-repeat scroll 13px 8px;
 }
-.page-staff-directory #zone-content h1:before, .node-type-profile #zone-content h1:before, .page-user  #zone-content h1:before, #zone-content section[class*='block-views-profiles-block-'] h2.block-title:before {
+
+/* INJECTOR .page-staff-directory #zone-content h1:before, .page-user  #zone-content h1:before, */
+.node-type-profile #zone-content h1:before, #zone-content section[class*='block-views-profiles-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-profile.png") no-repeat scroll 13px 8px;
 }
 
-.page-documents #zone-content h1:before, #zone-content section[class*='block-views-documents-block-'] h2.block-title:before {
+/* INJECTOR .page-documents #zone-content h1:before, */
+.node-type-document #zone-content h1:before, #zone-content section[class*='block-views-documents-block-'] h2.block-title:before {
 	background: url("../img/icons/icon-documents.png") no-repeat scroll 13px 8px;
 }
 
-.page-webform #zone-content h1:before, .node-type-webform #zone-content h1:before, #zone-content section[class*='block-views-webform-block'] h2.block-title:before {
+/* INJECTOR .page-webform #zone-content h1:before, */
+.node-type-webform #zone-content h1:before, #zone-content section[class*='block-views-webform-block'] h2.block-title:before {
 	background: url("../img/icons/icon-webform.png") no-repeat scroll 13px 8px;
 }
+
 .context-contact-us #zone-content h1:before, #zone-footer section.block-contact-us h2.block-title:before {
 	background: url("../img/icons/icon-contactus.png") no-repeat scroll 13px 8px;
 }
@@ -2617,4 +2637,8 @@ td img{
 }
 .webform-component-fieldset {
 	width:100%
+}
+
+.views-field-field-secondary-phone-number .field-content{
+	padding-top:18px;
 }
